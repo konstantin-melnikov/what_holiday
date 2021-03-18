@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * This path is not in the test task, just interested for me. I do that simply.
@@ -124,18 +125,14 @@ class Holiday extends Command
                         $holiday['day_of_week'] = $this->_decodeDay($items[1]);
                     }
                 }
-                $holiday['isFreeDay'] = $isFreeDay;
+                $holiday['is_free_day'] = $isFreeDay;
                 $holiday['title'] = $holidayRaw['title'];
                 $holiday['date_raw'] = $holidayRaw['date'];
                 $holiday['description'] = $holidayRaw['description'];
                 $holidays[] = $holiday;
             }
         }
-        $path = storage_path() . "/json/holidays.json";
-        file_put_contents(
-            $path,
-            json_encode($holidays, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)
-        );
+        Storage::disk('local')->put('holidays.json', json_encode($holidays, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
         $this->info('Holidays storage was update with ' . count($holidays) . ' holidays');
     }
 
