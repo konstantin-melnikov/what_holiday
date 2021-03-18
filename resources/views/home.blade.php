@@ -1,10 +1,10 @@
 @extends('layout')
 
-@section('title', 'What is holiday?')
+@section('title', 'What holiday?')
 
 @section('content')
     <div class="container py-5">
-        <h1 class="text-center">What is holiday?</h1>
+        <h1 class="text-center">What holiday?</h1>
         <form class="mx-auto" style="max-width: 34rem;" method="POST" action="{{ route('home') }}">
             @if ($errors->any())
             <div class="alert alert-danger" role="alert">
