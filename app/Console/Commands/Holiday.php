@@ -107,7 +107,7 @@ class Holiday extends Command
                 } catch (\Exception $e) {
                     $calculable = [
                         'Масниця' => 'maslenitsa',
-                        'Великдень або Пасха' => 'pascha',
+                        'Великдень або Пасха' => 'easter',
                         'Трійця (П\'ятидесятниця)' => 'trinitas'
                     ];
                     if (isset(($calculable[$holidayRaw['title']]))) {

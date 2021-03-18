@@ -40,7 +40,7 @@ class HolidayService
     /**
      * Gets the holidays.
      *
-     * @todo Add filter for calculable holidays Like Pascha
+     * @todo Add filter for calculable holidays Like Easter
      * 
      * @param      string  $date   The date
      *
